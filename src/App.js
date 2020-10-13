@@ -7,6 +7,7 @@ import Navbar from "./components/layout/NavBar";
 
 import Dashboard from './components/layout/Dashboard';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import Pokemon from './components/pokemon/PokemonMain';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <div className="container">
           <Switch>
             <Route exact path="/" component={Dashboard}/>
+            <Route exact path="/pokemon/:pokeIndex" component={Pokemon} />
           </Switch>
         </div>
       </div>

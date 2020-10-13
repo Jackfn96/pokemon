@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Sprite = styled.img`
   width: 5em;
@@ -7,11 +8,23 @@ const Sprite = styled.img`
 `;
 
 const Card = styled.div`
-box-shadow: 1px 3px 3px black;
-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-&:hover {
-   box-shadow: 0 14px 28px rgba(240, 231, 17, 0.79), 0 5px 5px rgba(240, 231, 17, 0.79);
- }
+  box-shadow: 1px 3px 3px black;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+     box-shadow: 0 14px 28px rgba(240, 231, 17, 0.79), 0 5px 5px rgba(240, 231, 17, 0.79);
+   }
+;`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+
 ;`
 
 
@@ -40,6 +53,7 @@ export default class PokemonCard extends Component {
   render() {
     return (
       <div className="col-md-3 col-sm-6 mb-5">
+      <StyledLink to={`pokemon/${this.state.pokeIndex}`}>
         <Card className="card">
           <strong className="card-header">{this.state.pokeIndex}</strong>
           <Sprite
@@ -56,6 +70,7 @@ export default class PokemonCard extends Component {
                   letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</h7>
             </div>
           </Card>
+          </StyledLink>
         </div>
 
     );
