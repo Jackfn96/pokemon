@@ -82,13 +82,22 @@ export default class PokemonMain extends Component {
 
     const types = pokemonResponse.data.types.map(type => type.type.name);
 
-    const abilities = pokemonResponse.data.abilities.map(ability => {
-      return ability.ability.name
-      .charAt(0)
-      .toUpperCase()
-      + ability.ability.name
-      .slice(1)
-    })
+    // const abilities = pokemonResponse.data.abilities.map(ability => {
+    //   return ability.ability.name
+    //   .charAt(0)
+    //   .toUpperCase()
+    //   + ability.ability.name
+    //   .slice(1)
+    // })
+
+    const abilities = pokemonResponse.data.abilities
+    .map(ability => {
+    return ability.ability.name
+      .split('-')
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+      .join(' ');
+  })
+  .join(', ');
 
     const pokemonSpeciesResponse = await axios.get(pokemonSpeciesUrl);
     let description = '';
@@ -143,10 +152,121 @@ render() {
                   )}
                 </div>
             </div>
+        </div>
+        <div className="card-body">
+          <div className="row align-items-center">
+            <div className="col md-3">
+              <img src={this.state.imageUrl} className="ard-img mt-2 mx-auto"/>
           </div>
+          <div className="col-md-9">
+          <h5 className="mx-auto">
+          {this.state.name.charAt(0)
+                .toUpperCase()
+                + this.state.name
+                .slice(1)}
+        </h5>
+        <div className="row align-items-center">
+          <div className="col-12 col-md-3">HP</div>
+          <div className="col-12 col-md-9">
+          <div className="progress">
+          <div className="progress-bar" role="progressBar" style={{
+            width: `${this.state.stats.hp}%`
+          }}
+          aria-valuenow="25"
+          aria-valuemin="0"
+          aria-valuemax="100">
+          <small>{this.state.stats.hp}</small>
+          </div>
+          </div>
+          </div>
+          </div>
+          <div className="row align-items-center">
+            <div className="col-12 col-md-3">Attack</div>
+            <div className="col-12 col-md-9">
+            <div className="progress">
+            <div className="progress-bar" role="progressBar" style={{
+              width: `${this.state.stats.attack}%`
+            }}
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100">
+            <small>{this.state.stats.attack}</small>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div className="row align-items-center">
+              <div className="col-12 col-md-3">Defense</div>
+              <div className="col-12 col-md-9">
+              <div className="progress">
+              <div className="progress-bar" role="progressBar" style={{
+                width: `${this.state.stats.defense}%`
+              }}
+              aria-valuenow="25"
+              aria-valuemin="0"
+              aria-valuemax="100">
+              <small>{this.state.stats.defense}</small>
+              </div>
+              </div>
+              </div>
+              </div>
+              <div className="row align-items-center">
+                <div className="col-12 col-md-3">Speed</div>
+                <div className="col-12 col-md-9">
+                <div className="progress">
+                <div className="progress-bar" role="progressBar" style={{
+                  width: `${this.state.stats.speed}%`
+                }}
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100">
+                <small>{this.state.stats.speed}</small>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div className="row align-items-center">
+                  <div className="col-12 col-md-3">Special Attack</div>
+                  <div className="col-12 col-md-9">
+                  <div className="progress">
+                  <div className="progress-bar" role="progressBar" style={{
+                    width: `${this.state.stats.specialAttack}%`
+                  }}
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100">
+                  <small>{this.state.stats.specialAttack}</small>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  <div className="row align-items-center">
+                    <div className="col-12 col-md-3">Special Defense</div>
+                    <div className="col-12 col-md-9">
+                    <div className="progress">
+                    <div className="progress-bar" role="progressBar" style={{
+                      width: `${this.state.stats.specialDefense}%`
+                    }}
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100">
+                    <small>{this.state.stats.specialDefense}</small>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                  <div className="row mt-3">
+                  <div className="col">
+                  <i>{this.state.description}</i>
+                  <p className="mt-3">Abilities: {this.state.abilities}</p>
+                  </div>
+                  </div>
         </div>
       </div>
+      </div>
     </div>
+  </div>
+  </div>
 
   );
 }
