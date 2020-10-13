@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import axios from 'axios';
-
 
 export default class Dropdown extends Component {
 

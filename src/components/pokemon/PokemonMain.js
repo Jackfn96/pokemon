@@ -265,8 +265,7 @@ render() {
                   </div>
 
                   </div>
-                  <FavPick>
-                  </FavPick>
+                  <FavPick name={this.state.name}/>
         </div>
       </div>
       </div>

@@ -4,13 +4,30 @@ import axios from 'axios';
 
 
 export default class FavPick extends Component {
+  state = {
+    isFavourite: false,
+    name: ''
+    // pokeIndex: ''
+  }
+
+  onChange = e =>{
+    this.setState({isFavourite: e.target.checked})
+    localStorage.setItem(this.props.name, e.target.checked);
+
+;
+  }
 
 render() {
+  const {isFavourite} = this.state;
   return (
+    <form>
     <div>
-      <input className="mr-3" type="checkbox" id="Favourite" name="Favourite"/>
+      <input className="mr-3" type="checkbox" id="Favourite" name="Favourite" checked={isFavourite}
+      onChange={this.onChange}/>
       <label for="Favourite"><strong>Favourite Pokemon?</strong></label>
     </div>
+    </form>
+
   );
 }
 }
