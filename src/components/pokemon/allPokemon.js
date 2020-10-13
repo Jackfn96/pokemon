@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonCard from './PokemonCard';
 import axios from 'axios';
 
+
 export default class AllPokemon extends Component {
   state = {
     url: 'https://pokeapi.co/api/v2/pokemon?limit=100',
@@ -17,7 +18,7 @@ render() {
   return (
     <React.Fragment>
       {this.state.pokemon ? (
-      <div className="row mt-2">
+      <div className="row">
         {this.state.pokemon.map(pokemon => (
           <PokemonCard
           key={pokemon.name}
