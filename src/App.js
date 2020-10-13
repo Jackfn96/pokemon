@@ -6,16 +6,21 @@ import './App.css';
 import Navbar from "./components/layout/NavBar";
 
 import Dashboard from './components/layout/Dashboard';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <div className="container">
-        <Dashboard />
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Dashboard}/>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

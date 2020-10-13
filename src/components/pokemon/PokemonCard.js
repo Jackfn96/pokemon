@@ -6,6 +6,14 @@ const Sprite = styled.img`
   height: 5em;
 `;
 
+const Card = styled.div`
+box-shadow: 1px 3px 3px black;
+transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+&:hover {
+   box-shadow: 0 14px 28px rgba(240, 231, 17, 0.79), 0 5px 5px rgba(240, 231, 17, 0.79);
+ }
+;`
+
 
 export default class PokemonCard extends Component {
   state = {
@@ -32,10 +40,10 @@ export default class PokemonCard extends Component {
   render() {
     return (
       <div className="col-md-3 col-sm-6 mb-5">
-        <div className="card">
+        <Card className="card">
           <strong className="card-header">{this.state.pokeIndex}</strong>
           <Sprite
-          className="card-img"
+          className="card-img mt-2 mx-auto"
           src={this.state.imageUrl}
           onLoad={() => this.setState({imageLoading: false})}
           onError={() => this.setState({requestError: true})}
@@ -47,7 +55,7 @@ export default class PokemonCard extends Component {
                 .map(letter =>
                   letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}</h7>
             </div>
-          </div>
+          </Card>
         </div>
 
     );
