@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Dropdown from './Dropdown';
+import FavPick from './FavPick';
+import { Link } from 'react-router-dom';
 
 const Colours = {
   bug: '#B1C12E',
@@ -260,14 +263,20 @@ render() {
                   <i>{this.state.description}</i>
                   <p className="mt-3">Abilities: {this.state.abilities}</p>
                   </div>
+
                   </div>
+                  <FavPick>
+                  </FavPick>
         </div>
       </div>
       </div>
     </div>
   </div>
+  <div className="mt-4">
+  <Dropdown>
+  </Dropdown>
   </div>
-
+  </div>
   );
 }
 }

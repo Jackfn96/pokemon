@@ -17,7 +17,7 @@ render() {
   return (
     <React.Fragment>
       {this.state.pokemon ? (
-      <div className="row">
+      <div className="row mt-2">
         {this.state.pokemon.map(pokemon => (
           <PokemonCard
           key={pokemon.name}
