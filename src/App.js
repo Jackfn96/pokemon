@@ -9,6 +9,8 @@ import Dashboard from './components/layout/Dashboard';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Pokemon from './components/pokemon/PokemonMain';
 import Favourites from './components/pokemon/Favourites';
+import Compare from './components/pokemon/Compare';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route exact path="/pokemon/:pokeIndex" component={Pokemon}/>
+            <Route exact path="/Compare" component={Compare}>Compare</Route>
             <Link to="/Favourites" component={Favourites}>Favourites</Link>
           </Switch>
 

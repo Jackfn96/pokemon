@@ -85,14 +85,6 @@ export default class PokemonMain extends Component {
 
     const types = pokemonResponse.data.types.map(type => type.type.name);
 
-    // const abilities = pokemonResponse.data.abilities.map(ability => {
-    //   return ability.ability.name
-    //   .charAt(0)
-    //   .toUpperCase()
-    //   + ability.ability.name
-    //   .slice(1)
-    // })
-
     const abilities = pokemonResponse.data.abilities
     .map(ability => {
     return ability.ability.name
