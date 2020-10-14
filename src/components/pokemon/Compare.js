@@ -10,7 +10,7 @@ export default class Compare extends Component {
 
 render() {
   return (
-<div>HE</div>
+<div>Compare</div>
   );
 }
 }
