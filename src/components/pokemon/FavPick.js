@@ -12,6 +12,11 @@ export default class FavPick extends Component {
   onChange = e =>{
     this.setState({isFavourite: e.target.checked})
     localStorage.setItem(this.props.name, e.target.checked);
+    if (document.getElementById('Favourite').checked) {
+                alert("Favourite confirmed: " + this.props.name);
+            } else {
+                alert("Favourite removed: " + this.props.name);
+            }
 ;
   }
 

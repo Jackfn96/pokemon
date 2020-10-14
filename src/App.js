@@ -19,14 +19,12 @@ function App() {
 
         <Navbar/>
         <div className="container">
-
           <Switch>
             <Route exact path="/" component={Dashboard}/>
             <Route exact path="/pokemon/:pokeIndex" component={Pokemon}/>
             <Route exact path="/Compare" component={Compare}></Route>
             <Link to="/Favourites" component={Favourites}></Link>
           </Switch>
-
         </div>
       </div>
     </Router>

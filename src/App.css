@@ -7,3 +7,24 @@
 .navbar {
   background-color: #3a5ae0 !important;
 }
+
+#logo {
+  border-radius: 50%;
+  align-items: center;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+        transition: transform .8s ease-in-out;
+}
+
+#logo:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 50%;
+}

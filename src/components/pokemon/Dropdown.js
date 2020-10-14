@@ -23,9 +23,11 @@ export default class Dropdown extends Component {
     for (var i = 0; i < retrieveList.length; i++){
       list_2.push(retrieveList[i]);
     }
+
     for (var j = 0; j < 100; j++) {
       names.push(list_2[0][j]['name'])
     }
+    console.log(names)
 
     var select = document.getElementById("selectPokemon");
     var options = names;
